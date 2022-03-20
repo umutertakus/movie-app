@@ -14,14 +14,15 @@ function ListMovie() {
   console.log(data);
 
   return (
-    <div>
+    <div className="card-list">
       {data.Search.map((movieItem) => (
+        <div key={movieItem.imdbID}>
           <MovieCard
-            key={movieItem.imdbID}
             title={movieItem.Title}
             year={movieItem.Year}
             poster={movieItem.Poster}
           />
+        </div>
       ))}
     </div>
   );

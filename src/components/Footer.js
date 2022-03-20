@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <p>Footer content</p>
+    <p className="white">Footer content</p>
   )
 }
 

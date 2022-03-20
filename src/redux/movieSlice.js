@@ -3,7 +3,7 @@ import axios from "axios";
 
 export const fetchMovies = createAsyncThunk("movie/getMovie", async () => {
   const res = await axios(
-    `http://www.omdbapi.com/?apikey=2ccecf61&s=harry&type=movie&`
+    `http://www.omdbapi.com/?apikey=2ccecf61&s=batman&type=movie&`
   );
   return res.data;
 });
