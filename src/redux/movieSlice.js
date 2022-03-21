@@ -14,11 +14,19 @@ export const moviceSlice = createSlice({
     items: {
       Search: [],
     },
+    status: "idle",
   },
   reducers: {},
   extraReducers: {
+    [fetchMovies.pending]: (state, action) => {
+      state.status = "loading";
+    },
     [fetchMovies.fulfilled]: (state, action) => {
       state.items = action.payload;
+      state.status = "succeeded";
+    },
+    [fetchMovies.rejected]: (state, action) => {
+      state.status = "failed";
     },
   },
 });

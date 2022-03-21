@@ -1,7 +1,7 @@
 function Search() {
   return (
     <form className="search-form">
-      <input className="search-input" type="text" />
+      <input className="search-input" type="text" placeholder="Type a movie name" />
       <button className="btn">
         <i className="fa-solid fa-magnifying-glass"></i>
       </button>
