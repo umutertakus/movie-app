@@ -18,8 +18,7 @@ function Search() {
       console.log("You have to enter a movie/series name.");
     else {
       if (status === "idle" || status === "succeeded") {
-        const params = { term, sendValue };
-        dispatch(fetchMovies(params));
+        dispatch(fetchMovies({ term, sendValue }));
       }
       setTerm("");
     }

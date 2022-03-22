@@ -9,18 +9,22 @@ function ListMovie() {
   return (
     <>
       {status !== "loading" ? (
-        <div className="card-list">
-          {data.Search.map((movieItem) => (
-            <div className="div-card" key={movieItem.imdbID}>
-              <MovieCard
-                title={movieItem.Title}
-                year={movieItem.Year}
-                poster={movieItem.Poster}
-                id={movieItem.imdbID}
-              />
-            </div>
-          ))}
-        </div>
+        data.Response === "False" ? (
+          <h1 className="white">{data.Error}</h1>
+        ) : (
+          <div className="card-list">
+            {data.Search.map((movieItem) => (
+              <div className="div-card" key={movieItem.imdbID}>
+                <MovieCard
+                  title={movieItem.Title}
+                  year={movieItem.Year}
+                  poster={movieItem.Poster}
+                  id={movieItem.imdbID}
+                />
+              </div>
+            ))}
+          </div>
+        )
       ) : (
         <Loading />
       )}
