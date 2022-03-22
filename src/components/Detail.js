@@ -16,8 +16,6 @@ function Detail() {
       .finally(() => setIsLoading(false));
   }, []);
 
-  console.log(details);
-
   return (
     <>
       {
