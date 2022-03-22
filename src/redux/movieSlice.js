@@ -1,9 +1,9 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchMovies = createAsyncThunk("movie/getMovie", async (term) => {
+export const fetchMovies = createAsyncThunk("movie/getMovie", async (params) => {
   const res = await axios(
-    `http://www.omdbapi.com/?apikey=2ccecf61&s=${term}&type=movie&`
+    `http://www.omdbapi.com/?apikey=2ccecf61&s=${params.term}&type=${params.sendValue}&`
   );
   return res.data;
 });
@@ -13,6 +13,7 @@ export const moviceSlice = createSlice({
   initialState: {
     items: {
       Search: [],
+      totalResults: 0,
     },
     status: "idle",
   },
@@ -24,7 +25,6 @@ export const moviceSlice = createSlice({
     [fetchMovies.fulfilled]: (state, action) => {
       state.items = action.payload;
       state.status = "succeeded";
-      console.log(action.payload);
     },
     [fetchMovies.rejected]: (state, action) => {
       state.status = "failed";
