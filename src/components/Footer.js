@@ -1,7 +1,9 @@
 function Footer() {
   return (
-    <p className="white">Footer content</p>
-  )
+    <a target="_blank" className="white" href="https://github.com/umutertakus">
+      <i className="fa-brands fa-github"></i>
+    </a>
+  );
 }
 
 export default Footer;

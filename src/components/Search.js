@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../selectValues";
 import Select from "react-select";
+import Pages from "./Pages";
 
 function Search() {
   const [term, setTerm] = useState("");
@@ -20,7 +21,6 @@ function Search() {
       if (status === "idle" || status === "succeeded") {
         dispatch(fetchMovies({ term, sendValue }));
       }
-      setTerm("");
     }
   };
 
@@ -47,6 +47,8 @@ function Search() {
           onChange={handleSelect}
         ></Select>
       </form>
+
+      <Pages term={term} sendValue={sendValue} setTerm={setTerm} />
 
       {data.totalResults === 0 && (
         <h1 className="white">Please type a movie name!</h1>

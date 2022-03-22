@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Loading from "./Loading";
+import Header from "../components/Header";
+import Loading from "../components/Loading";
 
 function Detail() {
   const imdbID = useParams();
@@ -18,8 +19,9 @@ function Detail() {
 
   return (
     <>
-      {
-        isLoading !== true ? details.map((item) => (
+      <Header />
+      {isLoading !== true ? (
+        details.map((item) => (
           <div key={item.imdbID} className="detail-box">
             <div className="detail-i white">
               <p>
@@ -49,8 +51,10 @@ function Detail() {
             </div>
             <img src={item.Poster} alt="" />
           </div>
-        )) : <Loading />
-      }
+        ))
+      ) : (
+        <Loading />
+      )}
     </>
   );
 }

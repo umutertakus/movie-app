@@ -74,6 +74,7 @@ body {
   justify-content: space-evenly;
   flex-direction: row;
   align-items: center;
+  padding-bottom: 30px;
 }
 
 .search-input {
@@ -106,4 +107,20 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.page-white {
+  background-color: rgb(77, 196, 140);
+}
+
+.fa-brands, .fa-github {
+  padding-top: 30px;
+  font-size: 50px;
+  padding-bottom: 30px;
 }
