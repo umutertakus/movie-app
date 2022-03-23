@@ -1,4 +1,4 @@
-import { fetchMovies } from "../redux/movieSlice";
+import { fetchMovies, selectData, selectStatus } from "../redux/movieSlice";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectItems } from "../selectValues";
@@ -6,11 +6,11 @@ import Select from "react-select";
 import Pages from "./Pages";
 
 function Search() {
-  const [term, setTerm] = useState("");
+  const [term, setTerm] = useState("Batman");
   const [selectValue, setSelectValue] = useState();
-  const [sendValue, setSendValue] = useState("");
-  const data = useSelector((state) => state.movie.items);
-  const status = useSelector((state) => state.movie.status);
+  const [sendValue, setSendValue] = useState("movie");
+  const data = useSelector(selectData);
+  const status = useSelector(selectStatus);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
